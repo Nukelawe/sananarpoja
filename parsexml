@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# parse the original xml file by kotus into a plain text file with one word per line
+tar -xf kotus-sanalista-v1.tar.gz
+sed '/<st>/!d; s/^.*<s>\(.*\)<\/s>.*$/\1/' \
+	kotus-sanalista_v1/kotus-sanalista_v1.xml \
+	> server/words-fi
+rm -rf kotus-sanalista_v1
